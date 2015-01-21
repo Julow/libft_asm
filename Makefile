@@ -6,11 +6,13 @@
 #    By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 13:05:11 by jaguillo          #+#    #+#              #
-#    Updated: 2015/01/20 22:14:34 by jaguillo         ###   ########.fr        #
+#    Updated: 2015/01/21 17:19:09 by jaguillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libfts.a
+
+TEST = test
 
 C_DIR = srcs
 O_DIR = o
@@ -29,7 +31,7 @@ $(NAME): $(O_FILES)
 
 $(O_DIR)/%.o: $(C_DIR)/%.s
 	@mkdir -p $(O_DIRS) $(O_DIR) 2> /dev/null || echo "" > /dev/null
-	@nasm -o $@ $< \
+	@nasm -f macho64 -o $@ $< \
 	&& printf "\033[0;0m%-34s\033[1;30m -->>\t\033[0;32m$@\033[0;0m\n" "$<" \
 	|| (printf "\033[0;0m%-34s\033[1;30m -->>\t\033[0;31m$@\033[0;0m\n" "$<" \
 		&& exit 1)
@@ -40,7 +42,14 @@ clean:
 
 fclean: clean
 	@rm $(NAME) 2> /dev/null || echo "" > /dev/null
+	@rm $(TEST) 2> /dev/null || echo "" > /dev/null
 
 re: fclean all
+
+$(TEST): $(NAME)
+	@gcc -Wall -Werror -Wextra $(NAME) main.c -I . -L . -lfts -o $@ $< \
+		&& printf "\033[0;32m" \
+		|| printf "\033[0;31m"
+	@printf "%-34s \033[1;30m<<--\033[0;0m\n" "$@"
 
 .PHONY: all clean fclean re
