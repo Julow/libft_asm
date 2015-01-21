@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/21 17:58:08 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/21 18:51:54 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,16 @@
 
 int				main(int argc, char **argv)
 {
-	if (argc <= 1)
-		return (1);
-	printf("%c isdigit %d\n", argv[1][0], ft_isdigit(argv[1][0]));
+	char			c;
+
+	c = '0' - 4;
+	while (++c < '9' + 4)
+		printf("%c isdigit %d\n", c, ft_isdigit(c));
+	printf("%c isdigit %d\n", '\x200', ft_isdigit('\x200'));
+	printf("%c isdigit %d\n", '\0', ft_isdigit('\0'));
+	printf("%c isdigit %d\n", '\0', ft_isdigit('\0'));
+	c = -1;
+	printf("%c isdigit %d\n", c, ft_isdigit(c));
 	(void)argc;
 	(void)argv;
 	return (0);
