@@ -1,29 +1,40 @@
 ;; ************************************************************************** ;;
 ;;                                                                            ;;
 ;;                                                        :::      ::::::::   ;;
-;;   ft_strlen.s                                        :+:      :+:    :+:   ;;
+;;   ft_cat.s                                           :+:      :+:    :+:   ;;
 ;;                                                    +:+ +:+         +:+     ;;
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
-;;   Created: 2015/01/21 21:58:53 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 17:32:02 by jaguillo         ###   ########.fr       ;;
+;;   Created: 2015/01/22 17:30:19 by jaguillo          #+#    #+#             ;;
+;;   Updated: 2015/01/22 18:07:18 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
-; size_t		ft_strlen(const char *str);
-global	_ft_strlen
+; void			ft_cat(int fd);
+global	_ft_cat
+extern	_ft_puts
 
-_ft_strlen:
-	mov		rax, rdi
+_ft_cat:
 .loop:
-	mov		cx,[rax] 	; get char
-	cmp		cl, 0		; test first byte
-	jz		.ret		; break loop
-	inc		rax			; ++
-	cmp		ch, 0		; test last byte
-	jz		.ret		; break loop
-	inc		rax			; ++
+	; read
+	mov		rdx, buff_size
+	mov		rsi, buff
+	mov		rax, 0x2000003	; syscall read
+	syscall				; call read
+	cmp		rax, 1
+	jl		.ret		; break loop
+	; write
+	push	rdi			; save fd
+	mov		rdx, rax
+	mov		rsi, buff
+	mov		rdi, 1
+	mov		rax, 0x2000004	; syscall write
+	syscall				; call write
+	pop		rdi			; restore fd
 	jmp		.loop
 .ret:
-	sub		rax, rdi	; sub pointers
 	ret
+
+section .data
+	buff		times 192 db 0
+	buff_size	equ $ - buff

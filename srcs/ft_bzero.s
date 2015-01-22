@@ -6,11 +6,11 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 17:54:58 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 11:22:34 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 17:32:16 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
-; void			*ft_bzero(void *mem, unsigned int len);
+; void			*ft_bzero(void *mem, size_t len);
 global	_ft_bzero
 
 _ft_bzero:

@@ -6,12 +6,14 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 14:33:45 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/22 17:19:55 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/22 17:42:47 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTS_H
 # define LIBFTS_H
+
+# include <stddef.h>
 
 /*
 ;	64				32			16		[8	8]
@@ -44,15 +46,17 @@ int				ft_isrange(int c, int from, int to);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 
-void			*ft_memset(void *mem, int c, unsigned int len);
-void			*ft_bzero(void *mem, unsigned int len);
-void			*ft_memcpy(void *dst, const void *src, unsigned int len);
+void			*ft_memset(void *mem, int c, size_t len);
+void			*ft_bzero(void *mem, size_t len);
+void			*ft_memcpy(void *dst, const void *src, size_t len);
 
-unsigned int	ft_strlen(const char *str);
+size_t			ft_strlen(const char *str);
 char			*ft_strcat(char *s1, const char *s2);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strdup(const char *str);
 
 int				ft_puts(const char *s);
+
+void			ft_cat(int fd);
 
 #endif

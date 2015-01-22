@@ -6,11 +6,11 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 17:54:38 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 11:21:21 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 17:32:23 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
-; void			*ft_memset(void *mem, int c, unsigned int len);
+; void			*ft_memset(void *mem, int c, size_t len);
 global	_ft_memset
 
 _ft_memset:

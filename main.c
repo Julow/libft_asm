@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/22 17:29:14 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/22 17:57:19 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <fcntl.h>
 #include <string.h>
 
 #define TEST(a,b,c)	(test(#a, a(c), b(c), c))
@@ -99,6 +100,8 @@ int				main(int argc, char **argv)
 	printf("%s\n", str);
 	printf("done\n");
 	printf("Testing ft_puts...\n");
+	if (argc > 1)
+		ft_puts(argv[1]);
 	ft_puts(str);
 	ft_puts("\n");
 	ft_puts("");
@@ -110,6 +113,21 @@ int				main(int argc, char **argv)
 		ft_puts(str + i);
 		ft_puts("\n");
 	}
+	printf("done\n");
+	printf("Testing ft_cat...\n");
+	if (argc > 1)
+	{
+		if (strcmp(argv[1], "-") == 0)
+		{
+			printf("	testing fd 0\n");
+			i = 0;
+		}
+		else
+			i = open(argv[1], O_RDONLY);
+		ft_cat(i);
+	}
+	else
+		printf("	enter a file\n");
 	printf("done\n");
 /*
 	i = 10000000;
