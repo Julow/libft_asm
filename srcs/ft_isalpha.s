@@ -6,22 +6,22 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 21:21:17 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/21 21:33:28 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 11:21:59 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; int			ft_isalpha(int c);
-global	ft_isalpha
-extern	ft_isrange
+global	_ft_isalpha
+extern	_ft_isrange
 
-ft_isalpha:
+_ft_isalpha:
 	mov		rsi, 'a'
 	mov		rdx, 'z'
-	call	ft_isrange
+	call	_ft_isrange
 	push	rax
 	mov		rsi, 'A'
 	mov		rdx, 'Z'
-	call	ft_isrange
+	call	_ft_isrange
 	pop		rdi
 	or		rax, rdi
 	ret

@@ -6,14 +6,14 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 21:52:09 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/21 21:52:59 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 11:21:06 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; int			ft_tolower(int c);
-global	ft_tolower
+global	_ft_tolower
 
-ft_tolower:
+_ft_tolower:
 	mov		rax, rdi
 	cmp		rdi, 'A'
 	jl		.ret

@@ -6,21 +6,21 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 21:44:21 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/21 21:46:43 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 11:22:29 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; int			ft_isalnum(int c);
-global	ft_isalnum
-extern	ft_isalpha
-extern	ft_isdigit
+global	_ft_isalnum
+extern	_ft_isalpha
+extern	_ft_isdigit
 
-ft_isalnum:
+_ft_isalnum:
 	push	rdi
-	call	ft_isalpha
+	call	_ft_isalpha
 	pop		rdi
 	push	rax
-	call	ft_isdigit
+	call	_ft_isdigit
 	pop		rdi
 	or		rax, rdi
 	ret

@@ -6,22 +6,21 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 21:58:53 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 00:27:49 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 13:13:59 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; unsigned int	ft_strlen(const char *str);
-global	ft_strlen
+global	_ft_strlen
 
-ft_strlen:
-	mov		rcx, rdi
+_ft_strlen:
+	mov		rax, rdi
 .loop:
-	mov		al,[rdi] 	; get char
-	cmp		al, 0
+	mov		cx,[rax] 	; get char
+	and		cx, 0xFF
 	jz		.ret		; break loop
-	inc		rdi			; ++
+	inc		rax			; ++
 	jmp		.loop
 .ret:
-	sub		rdi, rcx	; sub pointers
-	mov		rax, rdi	; return
+	sub		rax, rdi	; sub pointers
 	ret

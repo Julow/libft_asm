@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 14:33:45 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/22 00:22:52 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/22 13:58:46 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,15 @@
 # define LIBFTS_H
 
 /*
-; %rdi = 1
-; %rsi = 2
-; %rdx = 3
-; %rcx = 4 (or counter)
-; %rax = return
-
-;	64				32			16		8	4
+;	64				32			16		[8	8]
 ;	%rax			%eax		%ax		%ah	%al 	Return 1
-;	%rbx			%ebx		%ax		%bh	%bl 	(Callee saved)
+;	%rbx			%ebx		%bx		%bh	%bl 	(Callee saved)
 ;	%rcx			%ecx		%cx		%ch	%cl 	Arg 4 + Counter
 ;	%rdx			%edx		%dx		%dh	%dl 	Arg 3 + Return 2
-;	%rsi			%esi		%si			%sil	Arg 2
-;	%rdi			%edi		%di			%dil	Arg 1
+;	%rsi			%esi		%si			%sil	Arg 2 (Callee saved)
+;	%rdi			%edi		%di			%dil	Arg 1 (Callee saved)
 ;	%rbp			%ebp		%bp			%bpl	(Callee saved)
-;	%rsp			%esp		%sp			%spl	Stack pointer
+;	%rsp			%esp		%sp			%spl	Stack pointer (Callee saved)
 ;	%r8				%r8d		%r8w		%r8b	Arg 5
 ;	%r9				%r9d		%r9w		%r9b	Arg 6
 ;	%r10			%r10d		%r10w		%r10b	(Callee saved)
@@ -54,5 +48,6 @@ void			*ft_bzero(void *mem, unsigned int len);
 void			*ft_memcpy(void *dst, const void *src, unsigned int len);
 
 unsigned int	ft_strlen(const char *str);
+char			*ft_strcat(char *s1, const char *s2);
 
 #endif

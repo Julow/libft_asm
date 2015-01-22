@@ -6,15 +6,15 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 21:47:15 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/21 21:47:38 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 11:22:10 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; int			ft_isprint(int c);
-global	ft_isprint
-extern	ft_isrange
+global	_ft_isprint
+extern	_ft_isrange
 
-ft_isprint:
+_ft_isprint:
 	mov		rsi, ' '
 	mov		rdx, '~'
-	jmp		ft_isrange
+	jmp		_ft_isrange
