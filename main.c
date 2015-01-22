@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/22 14:22:14 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/22 15:22:49 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,13 @@ int				main(int argc, char **argv)
 			strlen(str), str);
 	printf("done\n");
 	printf("Testing ft_strcat...\n");
+	printf("%s\n", str);
+	ft_strcpy(str + 19, "lol ");
+	printf("%s\n", str);
 	str[5] = '\0';
 	ft_strcat(str, "lol");
+	printf("%s\n", str);
+	ft_strcpy(str, "lol");
 	printf("%s\n", str);
 /*
 	if (strcmp(ft_strcat("test\0test", "lol"), strcat("test\0test", "lol")) != 0)

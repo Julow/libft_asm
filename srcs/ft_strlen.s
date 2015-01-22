@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 21:58:53 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 13:13:59 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 15:23:45 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -16,8 +16,8 @@ global	_ft_strlen
 _ft_strlen:
 	mov		rax, rdi
 .loop:
-	mov		cx,[rax] 	; get char
-	and		cx, 0xFF
+	mov		cl,[rax] 	; get char
+	and		cl, 0xFF
 	jz		.ret		; break loop
 	inc		rax			; ++
 	jmp		.loop

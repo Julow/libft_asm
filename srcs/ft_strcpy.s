@@ -1,23 +1,20 @@
 ;; ************************************************************************** ;;
 ;;                                                                            ;;
 ;;                                                        :::      ::::::::   ;;
-;;   ft_strcat.s                                        :+:      :+:    :+:   ;;
+;;   ft_strcpy.s                                        :+:      :+:    :+:   ;;
 ;;                                                    +:+ +:+         +:+     ;;
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
-;;   Created: 2015/01/22 13:36:51 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 15:23:52 by jaguillo         ###   ########.fr       ;;
+;;   Created: 2015/01/22 14:59:38 by jaguillo          #+#    #+#             ;;
+;;   Updated: 2015/01/22 15:24:37 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
-; char			*ft_strcat(char *s1, const char *s2);
-global	_ft_strcat
-extern	_ft_strlen
+; char			*ft_strcpy(char *dst, const char *src);
+global	_ft_strcpy
 
-_ft_strcat:
+_ft_strcpy:
 	push	rdi			; save rdi
-	call	_ft_strlen
-	add		rdi, rax
 .loop:
 	mov		cl, [rsi]	; get char
 	mov		[rdi], cl	; set char
