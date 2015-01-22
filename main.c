@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/22 16:42:37 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/22 17:29:14 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,23 @@ int				main(int argc, char **argv)
 	printf("%s\n", str);
 	ft_strcpy(str, "lol");
 	printf("%s\n", str);
-	printf("done\n");/*
+	ft_strcat(str, "aaaaaaaaaaa");
+	printf("%s\n", str);
+	printf("done\n");
+	printf("Testing ft_puts...\n");
+	ft_puts(str);
+	ft_puts("\n");
+	ft_puts("");
+	ft_puts("\n");
+	ft_puts("test\n");
+	i = 0;
+	while (++i < ft_strlen(str))
+	{
+		ft_puts(str + i);
+		ft_puts("\n");
+	}
+	printf("done\n");
+/*
 	i = 10000000;
 	while (--i > 0)
 		ft_strlen(str);*/

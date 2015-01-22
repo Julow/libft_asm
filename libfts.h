@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 14:33:45 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/22 16:42:22 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/22 17:19:55 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,7 @@ unsigned int	ft_strlen(const char *str);
 char			*ft_strcat(char *s1, const char *s2);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strdup(const char *str);
+
+int				ft_puts(const char *s);
 
 #endif
