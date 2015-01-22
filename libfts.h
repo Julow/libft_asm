@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 14:33:45 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/22 16:35:35 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/22 16:42:22 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int				ft_isalpha(int c);
 int				ft_isascii(int c);
 int				ft_isdigit(int c);
 int				ft_isprint(int c);
+int				ft_isspace(int c);
 int				ft_isrange(int c, int from, int to);
 
 int				ft_toupper(int c);

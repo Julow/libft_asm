@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/22 16:37:16 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/22 16:42:37 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ int				main(int argc, char **argv)
 	i = -1;
 	while (++i < 1024)
 		TEST(ft_isprint, !!isprint, i);
+	printf("done\n");
+	printf("Testing ft_isspace...\n");
+	i = -1;
+	while (++i < 1024)
+		TEST(ft_isspace, !!isspace, i);
 	printf("done\n");
 	printf("Testing ft_toupper...\n");
 	i = -1;
