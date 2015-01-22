@@ -6,13 +6,14 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/22 15:33:28 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/22 16:37:16 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfts.h"
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define TEST(a,b,c)	(test(#a, a(c), b(c), c))
@@ -28,7 +29,7 @@ int				main(int argc, char **argv)
 	char			*str;
 	int				i;
 
-	str = strdup("test test test testtest test");
+	str = ft_strdup("test test test testtest test");
 	printf("Testing ft_isdigit...\n");
 	i = -1;
 	while (++i < 1024)
@@ -68,10 +69,17 @@ int				main(int argc, char **argv)
 	if (argc > 1)
 		printf("ft_strlen(\"%s\") :: %u\n", argv[1], ft_strlen(argv[1]));
 	i = -1;
-	while (++i < 28)
+	while (++i < ft_strlen(str))
 		if (ft_strlen(str + i) != strlen(str + i))
 			printf("\n ft_strlen fail ! %u vs %zu for %s\n", ft_strlen(str + i),
 				strlen(str + i), str + i);
+	printf("done\n");
+	printf("Testing ft_strdup...\n");
+	i = -1;
+	while (++i < ft_strlen(str))
+		if (strcmp(ft_strdup(str + i), strdup(str + i)) != 0)
+			printf("\n ft_strdup fail ! %s vs %s for %s\n", ft_strdup(str + i),
+				strdup(str + i), str + i);
 	printf("done\n");
 	printf("Testing ft_strcat...\n");
 	printf("%s\n", str);
