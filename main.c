@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/22 15:22:49 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/22 15:33:28 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,11 @@ int				main(int argc, char **argv)
 	printf("Testing ft_strlen...\n");
 	if (argc > 1)
 		printf("ft_strlen(\"%s\") :: %u\n", argv[1], ft_strlen(argv[1]));
-	if (ft_strlen(str) != strlen(str))
-		printf("\n ft_strlen fail ! %u vs %zu for %s\n", ft_strlen(str),
-			strlen(str), str);
+	i = -1;
+	while (++i < 28)
+		if (ft_strlen(str + i) != strlen(str + i))
+			printf("\n ft_strlen fail ! %u vs %zu for %s\n", ft_strlen(str + i),
+				strlen(str + i), str + i);
 	printf("done\n");
 	printf("Testing ft_strcat...\n");
 	printf("%s\n", str);
@@ -80,16 +82,10 @@ int				main(int argc, char **argv)
 	printf("%s\n", str);
 	ft_strcpy(str, "lol");
 	printf("%s\n", str);
-/*
-	if (strcmp(ft_strcat("test\0test", "lol"), strcat("test\0test", "lol")) != 0)
-		printf("\n ft_strcat fail ! %s vs %s\n", ft_strcat("test\0test", "lol"),
-			strcat("test\0test", "lol"));
-*/
-	printf("done\n");
-	/*
-	i = 1000000;
+	printf("done\n");/*
+	i = 10000000;
 	while (--i > 0)
-		strlen(str);*/
+		ft_strlen(str);*/
 	(void)argc;
 	(void)argv;
 	return (0);
