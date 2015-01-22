@@ -6,14 +6,14 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 21:48:22 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 11:21:01 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 21:13:02 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; int			ft_toupper(int c);
-global	_ft_toupper
+global	ft_toupper
 
-_ft_toupper:
+ft_toupper:
 	mov		rax, rdi
 	cmp		rdi, 'a'
 	jl		.ret

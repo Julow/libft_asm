@@ -6,14 +6,14 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 17:54:58 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 17:32:16 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 21:11:29 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; void			*ft_bzero(void *mem, size_t len);
-global	_ft_bzero
+global	ft_bzero
 
-_ft_bzero:
+ft_bzero:
 	push	rdi			; save rdi
 	mov		rax, 0
 	mov		rcx, rsi

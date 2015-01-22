@@ -6,14 +6,14 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 21:58:53 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 17:32:02 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 21:12:52 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; size_t		ft_strlen(const char *str);
-global	_ft_strlen
+global	ft_strlen
 
-_ft_strlen:
+ft_strlen:
 	mov		rax, rdi
 .loop:
 	mov		cx,[rax] 	; get char

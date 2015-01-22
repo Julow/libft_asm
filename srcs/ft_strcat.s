@@ -6,17 +6,17 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 13:36:51 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 15:23:52 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 21:12:39 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; char			*ft_strcat(char *s1, const char *s2);
-global	_ft_strcat
-extern	_ft_strlen
+global	ft_strcat
+extern	ft_strlen
 
-_ft_strcat:
+ft_strcat:
 	push	rdi			; save rdi
-	call	_ft_strlen
+	call	ft_strlen
 	add		rdi, rax
 .loop:
 	mov		cl, [rsi]	; get char

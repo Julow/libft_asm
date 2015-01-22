@@ -6,14 +6,14 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 14:59:38 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 15:24:37 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 21:12:44 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; char			*ft_strcpy(char *dst, const char *src);
-global	_ft_strcpy
+global	ft_strcpy
 
-_ft_strcpy:
+ft_strcpy:
 	push	rdi			; save rdi
 .loop:
 	mov		cl, [rsi]	; get char

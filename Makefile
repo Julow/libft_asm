@@ -6,7 +6,7 @@
 #    By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 13:05:11 by jaguillo          #+#    #+#              #
-#    Updated: 2015/01/21 21:04:08 by jaguillo         ###   ########.fr        #
+#    Updated: 2015/01/22 21:14:18 by jaguillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ O_DIR = o
 ifeq ($(shell uname),Linux)
 	FLAGS = -f elf64
 else
-	FLAGS = -f macho64
+	FLAGS = -f macho64 --prefix _
 endif
 
 C_FILES = $(shell find $(C_DIR) -type f -print | grep "\.s")

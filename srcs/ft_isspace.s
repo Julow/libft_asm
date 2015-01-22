@@ -6,14 +6,14 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 16:39:31 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 16:47:05 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 21:12:15 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; int			ft_isspace(int c);
-global	_ft_isspace
+global	ft_isspace
 
-_ft_isspace:
+ft_isspace:
 	cmp		rdi, ' '	; check space
 	jz		.true
 	cmp		rdi, 9		; check \t

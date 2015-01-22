@@ -6,16 +6,16 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 17:14:46 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 17:40:11 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 21:12:32 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; int			ft_puts(const char *s);
-global	_ft_puts
-extern	_ft_strlen
+global	ft_puts
+extern	ft_strlen
 
-_ft_puts:
-	call	_ft_strlen	; call ft_strlen
+ft_puts:
+	call	ft_strlen	; call ft_strlen
 	mov		rdx, rax	; len
 	mov		rsi, rdi	; str
 	mov		rdi, 1		; fd

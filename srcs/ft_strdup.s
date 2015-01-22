@@ -6,23 +6,23 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 16:23:27 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 16:35:25 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 21:09:27 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; char			*ft_strdup(const char *str);
-global	_ft_strdup
-extern	_ft_strlen
-extern	_ft_memcpy
-extern	_malloc
+global	ft_strdup
+extern	ft_strlen
+extern	ft_memcpy
+extern	malloc
 
-_ft_strdup:
+ft_strdup:
 	push	rdi
-	call	_ft_strlen	; call ft_strlen
+	call	ft_strlen	; call ft_strlen
 	push	rax
 	mov		rdi, rax
-	call	_malloc		; call malloc
+	call	malloc		; call malloc
 	mov		rdi, rax
 	pop		rdx
 	pop		rsi
-	jmp		_ft_memcpy	; return ft_memcpy
+	jmp		ft_memcpy	; return ft_memcpy
