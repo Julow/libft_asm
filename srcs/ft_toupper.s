@@ -1,20 +1,24 @@
 ;; ************************************************************************** ;;
 ;;                                                                            ;;
 ;;                                                        :::      ::::::::   ;;
-;;   ft_isdigit.s                                       :+:      :+:    :+:   ;;
+;;   ft_toupper.s                                       :+:      :+:    :+:   ;;
 ;;                                                    +:+ +:+         +:+     ;;
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
-;;   Created: 2015/01/21 14:16:54 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/21 21:25:12 by jaguillo         ###   ########.fr       ;;
+;;   Created: 2015/01/21 21:48:22 by jaguillo          #+#    #+#             ;;
+;;   Updated: 2015/01/21 21:51:55 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
-; int			ft_isdigit(int c);
-global	ft_isdigit
-extern	ft_isrange
+; int			ft_toupper(int c);
+global	ft_toupper
 
-ft_isdigit:
-	mov		rsi, '0'
-	mov		rdx, '9'
-	jmp		ft_isrange
+ft_toupper:
+	mov		rax, rdi
+	cmp		rdi, 'a'
+	jl		.ret
+	cmp		rdi, 'z'
+	jg		.ret
+	sub		rax, 32
+.ret:
+	ret

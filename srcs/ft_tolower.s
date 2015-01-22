@@ -1,20 +1,24 @@
 ;; ************************************************************************** ;;
 ;;                                                                            ;;
 ;;                                                        :::      ::::::::   ;;
-;;   ft_isdigit.s                                       :+:      :+:    :+:   ;;
+;;   ft_tolower.s                                       :+:      :+:    :+:   ;;
 ;;                                                    +:+ +:+         +:+     ;;
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
-;;   Created: 2015/01/21 14:16:54 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/21 21:25:12 by jaguillo         ###   ########.fr       ;;
+;;   Created: 2015/01/21 21:52:09 by jaguillo          #+#    #+#             ;;
+;;   Updated: 2015/01/21 21:52:59 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
-; int			ft_isdigit(int c);
-global	ft_isdigit
-extern	ft_isrange
+; int			ft_tolower(int c);
+global	ft_tolower
 
-ft_isdigit:
-	mov		rsi, '0'
-	mov		rdx, '9'
-	jmp		ft_isrange
+ft_tolower:
+	mov		rax, rdi
+	cmp		rdi, 'A'
+	jl		.ret
+	cmp		rdi, 'Z'
+	jg		.ret
+	add		rax, 32
+.ret:
+	ret

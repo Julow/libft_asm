@@ -1,20 +1,26 @@
 ;; ************************************************************************** ;;
 ;;                                                                            ;;
 ;;                                                        :::      ::::::::   ;;
-;;   ft_isdigit.s                                       :+:      :+:    :+:   ;;
+;;   ft_isalnum.s                                       :+:      :+:    :+:   ;;
 ;;                                                    +:+ +:+         +:+     ;;
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
-;;   Created: 2015/01/21 14:16:54 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/21 21:25:12 by jaguillo         ###   ########.fr       ;;
+;;   Created: 2015/01/21 21:44:21 by jaguillo          #+#    #+#             ;;
+;;   Updated: 2015/01/21 21:46:43 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
-; int			ft_isdigit(int c);
-global	ft_isdigit
-extern	ft_isrange
+; int			ft_isalnum(int c);
+global	ft_isalnum
+extern	ft_isalpha
+extern	ft_isdigit
 
-ft_isdigit:
-	mov		rsi, '0'
-	mov		rdx, '9'
-	jmp		ft_isrange
+ft_isalnum:
+	push	rdi
+	call	ft_isalpha
+	pop		rdi
+	push	rax
+	call	ft_isdigit
+	pop		rdi
+	or		rax, rdi
+	ret

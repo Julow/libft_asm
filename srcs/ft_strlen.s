@@ -1,20 +1,27 @@
 ;; ************************************************************************** ;;
 ;;                                                                            ;;
 ;;                                                        :::      ::::::::   ;;
-;;   ft_isdigit.s                                       :+:      :+:    :+:   ;;
+;;   ft_strlen.s                                        :+:      :+:    :+:   ;;
 ;;                                                    +:+ +:+         +:+     ;;
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
-;;   Created: 2015/01/21 14:16:54 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/21 21:25:12 by jaguillo         ###   ########.fr       ;;
+;;   Created: 2015/01/21 21:58:53 by jaguillo          #+#    #+#             ;;
+;;   Updated: 2015/01/22 00:27:49 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
-; int			ft_isdigit(int c);
-global	ft_isdigit
-extern	ft_isrange
+; unsigned int	ft_strlen(const char *str);
+global	ft_strlen
 
-ft_isdigit:
-	mov		rsi, '0'
-	mov		rdx, '9'
-	jmp		ft_isrange
+ft_strlen:
+	mov		rcx, rdi
+.loop:
+	mov		al,[rdi] 	; get char
+	cmp		al, 0
+	jz		.ret		; break loop
+	inc		rdi			; ++
+	jmp		.loop
+.ret:
+	sub		rdi, rcx	; sub pointers
+	mov		rax, rdi	; return
+	ret

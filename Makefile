@@ -6,7 +6,7 @@
 #    By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 13:05:11 by jaguillo          #+#    #+#              #
-#    Updated: 2015/01/21 18:52:08 by jaguillo         ###   ########.fr        #
+#    Updated: 2015/01/21 21:04:08 by jaguillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,12 @@ TEST = test
 
 C_DIR = srcs
 O_DIR = o
+
+ifeq ($(shell uname),Linux)
+	FLAGS = -f elf64
+else
+	FLAGS = -f macho64
+endif
 
 C_FILES = $(shell find $(C_DIR) -type f -print | grep "\.s")
 C_DIRS = $(shell find $(C_DIR) -type d -print)
@@ -31,7 +37,7 @@ $(NAME): $(O_FILES)
 
 $(O_DIR)/%.o: $(C_DIR)/%.s
 	@mkdir -p $(O_DIRS) $(O_DIR) 2> /dev/null || echo "" > /dev/null
-	@nasm -f macho64 -o $@ $< \
+	@nasm $(FLAGS) -o $@ $< \
 	&& printf "\033[0;0m%-34s\033[1;30m -->>\t\033[0;32m$@\033[0;0m\n" "$<" \
 	|| (printf "\033[0;0m%-34s\033[1;30m -->>\t\033[0;31m$@\033[0;0m\n" "$<" \
 		&& exit 1)

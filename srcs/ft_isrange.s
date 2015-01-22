@@ -1,20 +1,25 @@
 ;; ************************************************************************** ;;
 ;;                                                                            ;;
 ;;                                                        :::      ::::::::   ;;
-;;   ft_isdigit.s                                       :+:      :+:    :+:   ;;
+;;   ft_isrange.s                                       :+:      :+:    :+:   ;;
 ;;                                                    +:+ +:+         +:+     ;;
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
-;;   Created: 2015/01/21 14:16:54 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/21 21:25:12 by jaguillo         ###   ########.fr       ;;
+;;   Created: 2015/01/21 20:41:13 by jaguillo          #+#    #+#             ;;
+;;   Updated: 2015/01/21 21:50:38 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
-; int			ft_isdigit(int c);
-global	ft_isdigit
-extern	ft_isrange
+; int			ft_isrange(int c, int from, int to);
+global	ft_isrange
 
-ft_isdigit:
-	mov		rsi, '0'
-	mov		rdx, '9'
-	jmp		ft_isrange
+ft_isrange:
+	cmp		rdi, rsi
+	jl		.false
+	cmp		rdi, rdx
+	jg		.false
+	mov		rax, 1
+	ret
+.false:
+	mov		rax, 0
+	ret
