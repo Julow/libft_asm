@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 21:21:17 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 21:11:47 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 22:18:23 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -15,6 +15,7 @@ global	ft_isalpha
 extern	ft_isrange
 
 ft_isalpha:
+	push	rsi			; save rsi
 	mov		rsi, 'a'
 	mov		rdx, 'z'
 	call	ft_isrange
@@ -22,6 +23,7 @@ ft_isalpha:
 	mov		rsi, 'A'
 	mov		rdx, 'Z'
 	call	ft_isrange
-	pop		rdi
-	or		rax, rdi
+	pop		rdx
+	or		rax, rdx
+	pop		rsi			; restore rsi
 	ret

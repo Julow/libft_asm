@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 21:52:09 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 21:12:56 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 22:10:12 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -15,9 +15,9 @@ global	ft_tolower
 
 ft_tolower:
 	mov		rax, rdi
-	cmp		rdi, 'A'
+	cmp		rax, 'A'
 	jl		.ret
-	cmp		rdi, 'Z'
+	cmp		rax, 'Z'
 	jg		.ret
 	add		rax, 32
 .ret:

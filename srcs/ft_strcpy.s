@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 14:59:38 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 21:12:44 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 22:05:48 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -24,5 +24,6 @@ ft_strcpy:
 	inc		rsi
 	jmp		.loop
 .ret:
-	pop		rax			; return rdi
+	pop		rdi			; restore rdi
+	mov		rax, rdi	; return rdi
 	ret

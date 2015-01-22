@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 17:30:19 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 21:11:34 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/22 22:16:18 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -15,6 +15,7 @@ global	ft_cat
 extern	ft_puts
 
 ft_cat:
+	push	rsi			; save rsi
 .loop:
 	; read
 	mov		rdx, buff_size
@@ -33,6 +34,7 @@ ft_cat:
 	pop		rdi			; restore fd
 	jmp		.loop
 .ret:
+	pop		rsi			; restore rsi
 	ret
 
 section .data
