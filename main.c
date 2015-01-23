@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/22 21:13:41 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/23 12:03:42 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,21 +98,41 @@ int				main(int argc, char **argv)
 	printf("%s\n", str);
 	ft_strcat(str, "aaaaaaaaaaa");
 	printf("%s\n", str);
+	ft_bzero(str, 1);
+	ft_strcat(str, "test test test testtest test");
+	printf("%s\n", str);
+	printf("done\n");
+	printf("Testing ft_putchar...\n");
+	i = 'A' - 1;
+	while (++i < 'z')
+		ft_putchar(i);
+	ft_putchar('\n');
+	printf("done\n");
+	ft_strcpy(str, "test test test testtest test");
+	printf("Testing ft_putstr...\n");
+	if (argc > 1)
+		ft_putstr(argv[1]);
+	ft_putstr(str);
+	ft_putstr("\n");
+	ft_putstr("");
+	ft_putstr("\n");
+	ft_putstr("test\n");
+	i = 0;
+	while (++i < ft_strlen(str))
+	{
+		ft_putstr(str + i);
+		ft_putstr("\n");
+	}
 	printf("done\n");
 	printf("Testing ft_puts...\n");
 	if (argc > 1)
 		ft_puts(argv[1]);
 	ft_puts(str);
-	ft_puts("\n");
 	ft_puts("");
-	ft_puts("\n");
-	ft_puts("test\n");
+	ft_puts("test");
 	i = 0;
 	while (++i < ft_strlen(str))
-	{
 		ft_puts(str + i);
-		ft_puts("\n");
-	}
 	printf("done\n");
 	printf("Testing ft_cat...\n");
 	if (argc > 1)

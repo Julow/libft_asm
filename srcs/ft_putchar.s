@@ -1,24 +1,24 @@
 ;; ************************************************************************** ;;
 ;;                                                                            ;;
 ;;                                                        :::      ::::::::   ;;
-;;   ft_puts.s                                          :+:      :+:    :+:   ;;
+;;   ft_putchar.s                                       :+:      :+:    :+:   ;;
 ;;                                                    +:+ +:+         +:+     ;;
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
-;;   Created: 2015/01/22 17:14:46 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/23 12:05:52 by jaguillo         ###   ########.fr       ;;
+;;   Created: 2015/01/23 11:20:52 by jaguillo          #+#    #+#             ;;
+;;   Updated: 2015/01/23 11:33:20 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
-; int			ft_puts(const char *s);
-global	ft_puts
-extern	ft_putstr
-extern	ft_putchar
+; int			ft_putchar(char c);
+global	ft_putchar
 
-ft_puts:
-	call	ft_putstr
+ft_putchar:
 	push	rdi			; save rdi
-	mov		rdi, 10
-	call	ft_putchar	; put \n
+	mov		rdi, 1		; fd
+	mov		rsi, rsp	; char (rdi)
+	mov		rdx, 1		; len
+	mov		rax, 0x2000004	; syscall write
+	syscall
 	pop		rdi			; restore rdi
 	ret

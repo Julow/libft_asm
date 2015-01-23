@@ -1,42 +1,28 @@
 ;; ************************************************************************** ;;
 ;;                                                                            ;;
 ;;                                                        :::      ::::::::   ;;
-;;   ft_cat.s                                           :+:      :+:    :+:   ;;
+;;   ft_putstr.s                                        :+:      :+:    :+:   ;;
 ;;                                                    +:+ +:+         +:+     ;;
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
-;;   Created: 2015/01/22 17:30:19 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/23 11:15:46 by jaguillo         ###   ########.fr       ;;
+;;   Created: 2015/01/23 11:33:04 by jaguillo          #+#    #+#             ;;
+;;   Updated: 2015/01/23 12:06:09 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
-; void			ft_cat(int fd);
-global	ft_cat
-extern	ft_puts
+; int			ft_putstr(const char *str);
+global	ft_putstr
+extern	ft_strlen
 
-ft_cat:
+ft_putstr:
 	push	rsi			; save rsi
-.loop:
-	; read
-	mov		rdx, buff_size
-	mov		rsi, buff
-	mov		rax, 0x2000003	; syscall read
-	syscall				; call read
-	cmp		eax, 1
-	jl		.ret		; break loop
-	; write
-	push	rdi			; save fd
-	mov		rdx, rax
-	mov		rsi, buff
-	mov		rdi, 1
-	mov		rax, 0x2000004	; syscall write
+	call	ft_strlen	; call ft_strlen
+	mov		rdx, rax	; len
+	mov		rsi, rdi	; str
+	mov		rdi, 1		; fd
+	mov		rax, 0x2000004
 	syscall				; call write
-	pop		rdi			; restore fd
-	jmp		.loop
-.ret:
+	mov		rax, 0		; return 0
+	mov		rdi, rsi	; restore rdi
 	pop		rsi			; restore rsi
 	ret
-
-section .data
-	buff		times 192 db 0
-	buff_size	equ $ - buff

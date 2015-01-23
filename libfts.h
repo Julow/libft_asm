@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 14:33:45 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/22 21:15:56 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/23 12:03:11 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 ** ;%rsp			%esp		%sp			%spl	Stack pointer (Callee saved)
 ** ;%r8				%r8d		%r8w		%r8b	Arg 5
 ** ;%r9				%r9d		%r9w		%r9b	Arg 6
-** ;%r10			%r10d		%r10w		%r10b	(Callee saved)
-** ;%r11			%r11d		%r11w		%r11b
+** ;%r10			%r10d		%r10w		%r10b	Arg 7
+** ;%r11			%r11d		%r11w		%r11b	Arg 8
 ** ;%r12			%r12d		%r12w		%r12b	(Callee saved)
 ** ;%r13			%r13d		%r13w		%r13b	(Callee saved)
 ** ;%r14			%r14d		%r14w		%r14b	(Callee saved)
@@ -56,6 +56,8 @@ char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strdup(const char *str);
 
 int				ft_puts(const char *s);
+int				ft_putchar(char c);
+int				ft_putstr(const char *str);
 
 void			ft_cat(int fd);
 
