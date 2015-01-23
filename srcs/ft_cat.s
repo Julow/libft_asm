@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 17:30:19 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/23 11:15:46 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/23 16:03:38 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -22,8 +22,9 @@ ft_cat:
 	mov		rsi, buff
 	mov		rax, 0x2000003	; syscall read
 	syscall				; call read
-	cmp		eax, 1
-	jl		.ret		; break loop
+	jc		.ret		; break loop
+	cmp		rax, 0
+	jle		.ret		; break loop
 	; write
 	push	rdi			; save fd
 	mov		rdx, rax
