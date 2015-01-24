@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 14:33:45 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/24 16:01:38 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/24 23:29:49 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@
 ** ;%r13			%r13d		%r13w		%r13b	(Callee saved)
 ** ;%r14			%r14d		%r14w		%r14b	(Callee saved)
 ** ;%r15			%r15d		%r15w		%r15b	(Callee saved)
+** -
+** syscall
+** 0x2000003	read
+** 0x2000004	write
 */
 
 int				ft_isalnum(int c);
@@ -57,8 +61,10 @@ char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strdup(const char *str);
 
 int				ft_puts(const char *s);
+int				ft_putendl(const char *s);
 int				ft_putchar(char c);
 int				ft_putstr(const char *str);
+int				ft_putlstr(const char *str, size_t len);
 
 void			ft_cat(int fd);
 

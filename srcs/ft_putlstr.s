@@ -1,29 +1,36 @@
 ;; ************************************************************************** ;;
 ;;                                                                            ;;
 ;;                                                        :::      ::::::::   ;;
-;;   ft_putchar.s                                       :+:      :+:    :+:   ;;
+;;   ft_putlstr.s                                       :+:      :+:    :+:   ;;
 ;;                                                    +:+ +:+         +:+     ;;
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
-;;   Created: 2015/01/23 11:20:52 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/24 23:26:43 by jaguillo         ###   ########.fr       ;;
+;;   Created: 2015/01/24 17:59:24 by jaguillo          #+#    #+#             ;;
+;;   Updated: 2015/01/24 22:53:56 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
-; int			ft_putchar(char c);
-global	ft_putchar
-extern	ft_putlstr
+; int			ft_putlstr(const char *str, size_t len);
+global	ft_putlstr
 
-ft_putchar:
+ft_putlstr:
+%ifdef LINUX
+	push	rbx			; save rbx
+	mov		rdx, rsi	; len
+	mov		rcx, rdi	; str
+	mov		rbx, 1		; fd
+	mov		rax, 4
+	int		0x80
+	pop		rbx			; restore rbx
+%else
 	push	rsi			; save rsi
-	push	rdi			; save rdi
-	mov		[char], dil
-	mov		rdi, char	; char (rdi)
-	mov		rsi, 1		; len
-	call	ft_putlstr
-	pop		rdi			; restore rdi
+	mov		rdx, rsi	; len
+	mov		rsi, rdi	; str
+	mov		rdi, 1		; fd
+	mov		rax, 0x2000004
+	syscall
+	mov		rdi, rsi	; restore rdi
 	pop		rsi			; restore rsi
+%endif
+	mov		rax, 0		; return 0
 	ret
-
-section .data
-	char	db 0, 0

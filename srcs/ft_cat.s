@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 17:30:19 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/23 16:03:38 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/24 16:21:38 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -16,25 +16,26 @@ extern	ft_puts
 
 ft_cat:
 	push	rsi			; save rsi
+	mov		rbp, rdi	; save rdi
 .loop:
 	; read
 	mov		rdx, buff_size
 	mov		rsi, buff
+	mov		rdi, rbp	; fd
 	mov		rax, 0x2000003	; syscall read
 	syscall				; call read
 	jc		.ret		; break loop
 	cmp		rax, 0
 	jle		.ret		; break loop
 	; write
-	push	rdi			; save fd
 	mov		rdx, rax
 	mov		rsi, buff
 	mov		rdi, 1
 	mov		rax, 0x2000004	; syscall write
 	syscall				; call write
-	pop		rdi			; restore fd
 	jmp		.loop
 .ret:
+	mov		rdi, rbp	; restore rdi
 	pop		rsi			; restore rsi
 	ret
 

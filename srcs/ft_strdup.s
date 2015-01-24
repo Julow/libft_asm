@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 16:23:27 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 22:36:51 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/24 16:11:04 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -18,6 +18,7 @@ extern	malloc
 
 ft_strdup:
 	call	ft_strlen	; get len
+	push	rsi			; save rsi
 	push	rdi			; save rdi
 	push	rax			; save len
 	mov		rdi, rax
@@ -27,4 +28,5 @@ ft_strdup:
 	pop		rsi
 	call	ft_memcpy
 	mov		rdi, rsi	; restore rdi
+	pop		rsi			; restore rsi
 	ret

@@ -6,16 +6,19 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 17:14:46 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/23 12:05:52 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/24 18:10:49 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; int			ft_puts(const char *s);
+; int			ft_putendl(const char *s);
 global	ft_puts
+global	ft_putendl
 extern	ft_putstr
 extern	ft_putchar
 
 ft_puts:
+ft_putendl:
 	call	ft_putstr
 	push	rdi			; save rdi
 	mov		rdi, 10

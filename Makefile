@@ -6,7 +6,7 @@
 #    By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 13:05:11 by jaguillo          #+#    #+#              #
-#    Updated: 2015/01/22 21:14:18 by jaguillo         ###   ########.fr        #
+#    Updated: 2015/01/24 22:57:21 by jaguillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ C_DIR = srcs
 O_DIR = o
 
 ifeq ($(shell uname),Linux)
-	FLAGS = -f elf64
+	FLAGS = -f elf64 -DLINUX -g -F dwarf
 else
 	FLAGS = -f macho64 --prefix _
 endif
@@ -53,7 +53,7 @@ fclean: clean
 re: fclean all
 
 $(TEST): $(NAME)
-	@gcc -Wall -Wextra $(NAME) main.c -I . -L . -lfts -o $@ $< \
+	@gcc -Wall -Wextra -g $(NAME) main.c -I . -L . -lfts -o $@ $< \
 		&& printf "\033[0;32m" \
 		|| printf "\033[0;31m"
 	@printf "%-34s \033[1;30m<<--\033[0;0m\n" "$@"

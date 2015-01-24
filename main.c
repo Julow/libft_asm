@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/24 16:03:37 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/24 22:55:17 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,88 +28,89 @@ static void		test(char *str, int ret1, int ret2, char c)
 int				main(int argc, char **argv)
 {
 	char			*str;
-	int				i;
+	unsigned int	i;
 
 	str = ft_strdup("test test test testtest test");
-	printf("Testing ft_isdigit...\n");
+	ft_puts("Testing ft_isdigit...");
 	i = -1;
-	while (++i < 1024)
+	while (++i < 256)
 		TEST(ft_isdigit, !!isdigit, i);
-	printf("done\n");
-	printf("Testing ft_isalpha...\n");
+	ft_puts("done");
+	ft_puts("Testing ft_isalpha...");
 	i = -1;
-	while (++i < 1024)
+	while (++i < 256)
 		TEST(ft_isalpha, !!isalpha, i);
-	printf("done\n");
-	printf("Testing ft_isascii...\n");
+	ft_puts("done");
+	ft_puts("Testing ft_isascii...");
 	i = -1;
-	while (++i < 1024)
+	while (++i < 256)
 		TEST(ft_isascii, !!isascii, i);
-	printf("done\n");
-	printf("Testing ft_isalnum...\n");
+	ft_puts("done");
+	ft_puts("Testing ft_isalnum...");
 	i = -1;
-	while (++i < 1024)
+	while (++i < 256)
 		TEST(ft_isalnum, !!isalnum, i);
-	printf("done\n");
-	printf("Testing ft_isprint...\n");
+	ft_puts("done");
+	ft_puts("Testing ft_isprint...");
 	i = -1;
-	while (++i < 1024)
+	while (++i < 256)
 		TEST(ft_isprint, !!isprint, i);
-	printf("done\n");
-	printf("Testing ft_isspace...\n");
+	ft_puts("done");
+	ft_puts("Testing ft_isspace...");
 	i = -1;
-	while (++i < 1024)
+	while (++i < 256)
 		TEST(ft_isspace, !!isspace, i);
-	printf("done\n");
-	printf("Testing ft_toupper...\n");
+	ft_puts("done");
+	ft_puts("Testing ft_toupper...");
 	i = -1;
-	while (++i < 1024)
+	while (++i < 256)
 		TEST(ft_toupper, toupper, i);
-	printf("done\n");
-	printf("Testing ft_tolower...\n");
+	ft_puts("done");
+	ft_puts("Testing ft_tolower...");
 	i = -1;
-	while (++i < 1024)
+	while (++i < 256)
 		TEST(ft_tolower, tolower, i);
-	printf("done\n");
-	printf("Testing ft_strlen...\n");
+	ft_puts("done");
+	ft_puts("Testing ft_strlen...");
 	if (argc > 1)
 		printf("ft_strlen(\"%s\") :: %zu\n", argv[1], ft_strlen(argv[1]));
 	i = -1;
-	while (++i < (int)ft_strlen(str))
+	while ((++i + 1) < ft_strlen(str))
 		if (ft_strlen(str + i) != strlen(str + i))
 			printf("\n ft_strlen fail ! %zu vs %zu for %s\n", ft_strlen(str + i),
 				strlen(str + i), str + i);
-	printf("done\n");
-	printf("Testing ft_strdup...\n");
+	ft_puts("done");
+	ft_puts("Testing ft_strdup...");
 	i = -1;
-	while (++i < (int)ft_strlen(str))
+	while ((++i + 1) < ft_strlen(str))
 		if (strcmp(ft_strdup(str + i), strdup(str + i)) != 0)
 			printf("\n ft_strdup fail ! %s vs %s for %s\n", ft_strdup(str + i),
 				strdup(str + i), str + i);
-	printf("done\n");
-	printf("Testing ft_strcat...\n");
-	printf("%s\n", str);
+	ft_puts("done");
+	ft_puts("Testing ft_strcat...");
+	ft_puts(str);
 	ft_strcpy(str + 19, "lol ");
-	printf("%s\n", str);
+	ft_puts(str);
 	str[5] = '\0';
 	ft_strcat(str, "lol");
-	printf("%s\n", str);
+	ft_puts(str);
 	ft_strcpy(str, "lol");
-	printf("%s\n", str);
+	ft_puts(str);
 	ft_strcat(str, "aaaaaaaaaaa");
-	printf("%s\n", str);
+	ft_puts(str);
 	ft_bzero(str, 1);
 	ft_strcat(str, "test test test testtest test");
-	printf("%s\n", str);
-	printf("done\n");
-	printf("Testing ft_putchar...\n");
+	ft_puts(str);
+	ft_puts("done");
+	ft_puts("Testing ft_putchar...");
+	//ft_putlstr("\n", 1);
 	i = 'A' - 1;
-	while (++i < 'z')
+	while (++i < 'Z')
 		ft_putchar(i);
 	ft_putchar('\n');
-	printf("done\n");
+	ft_puts("done");
 	ft_strcpy(str, "test test test testtest test");
-	printf("Testing ft_putstr...\n");
+	ft_puts("Testing ft_putstr...");
 	if (argc > 1)
 		ft_putstr(argv[1]);
 	ft_putstr(str);
@@ -118,28 +119,28 @@ int				main(int argc, char **argv)
 	ft_putstr("\n");
 	ft_putstr("test\n");
 	i = 0;
-	while (++i < (int)ft_strlen(str))
+	while ((++i + 1) < ft_strlen(str))
 	{
 		ft_putstr(str + i);
 		ft_putstr("\n");
 	}
-	printf("done\n");
-	printf("Testing ft_puts...\n");
+	ft_putstr("done\n");
+	ft_putstr("Testing ft_puts...\n");
 	if (argc > 1)
 		ft_puts(argv[1]);
 	ft_puts(str);
 	ft_puts("");
 	ft_puts("test");
 	i = 0;
-	while (++i < (int)ft_strlen(str))
+	while ((++i + 1) < ft_strlen(str))
 		ft_puts(str + i);
-	printf("done\n");
-	printf("Testing ft_cat...\n");
+	ft_putstr("done\n");
+	ft_putstr("Testing ft_cat...\n");
 	if (argc > 1)
 	{
 		if (strcmp(argv[1], "-") == 0)
 		{
-			printf("	testing fd 0\n");
+			ft_putstr("	testing fd 0\n");
 			i = 0;
 		}
 		else
@@ -147,8 +148,8 @@ int				main(int argc, char **argv)
 		ft_cat(i);
 	}
 	else
-		printf("	enter a file\n");
-	printf("done\n");
+		ft_putstr("	enter a file\n");
+	ft_putstr("done\n");
 	(void)argc;
 	(void)argv;
 	return (0);
