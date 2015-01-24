@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 17:54:16 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/24 11:56:27 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/24 23:48:03 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -14,9 +14,8 @@
 global	ft_memcpy
 
 ft_memcpy:
-	push	rdi			; save rdi
+	mov		r8, rdi		; save rdi
 	mov		rcx, rdx
 	rep		movsb		; repeat while rcx
-	pop		rdi			; restore rdi
-	mov		rax, rdi	; return rdi
+	mov		rax, r8		; return rdi
 	ret

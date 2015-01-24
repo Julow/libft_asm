@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 14:33:45 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/24 23:29:49 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/24 23:31:33 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 ** ;%rbx			%ebx		%bx		%bh	%bl 	(Callee saved)
 ** ;%rcx			%ecx		%cx		%ch	%cl 	Arg 4 + Counter
 ** ;%rdx			%edx		%dx		%dh	%dl 	Arg 3 + Return 2
-** ;%rsi			%esi		%si			%sil	Arg 2 (Callee saved)
-** ;%rdi			%edi		%di			%dil	Arg 1 (Callee saved)
+** ;%rsi			%esi		%si			%sil	Arg 2
+** ;%rdi			%edi		%di			%dil	Arg 1
 ** ;%rbp			%ebp		%bp			%bpl	(Callee saved)
 ** ;%rsp			%esp		%sp			%spl	Stack pointer (Callee saved)
 ** ;%r8				%r8d		%r8w		%r8b	Arg 5

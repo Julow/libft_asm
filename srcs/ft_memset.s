@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 17:54:38 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/24 16:18:28 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/24 23:41:18 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -14,10 +14,9 @@
 global	ft_memset
 
 ft_memset:
-	push	rdi			; save rdi
 	mov		rax, rsi
 	mov		rcx, rdx
+	mov		r8, rdi		; save rdi
 	rep		stosb		; repeat while rcx
-	pop		rdi			; restore rdi
-	mov		rax, rdi	; return rdi
+	mov		rax, r8		; return rdi
 	ret

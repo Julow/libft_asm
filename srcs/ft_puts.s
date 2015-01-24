@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 17:14:46 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/24 18:10:49 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/24 23:32:43 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -20,8 +20,6 @@ extern	ft_putchar
 ft_puts:
 ft_putendl:
 	call	ft_putstr
-	push	rdi			; save rdi
 	mov		rdi, 10
 	call	ft_putchar	; put \n
-	pop		rdi			; restore rdi
 	ret

@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 17:54:58 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/24 16:00:40 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/24 23:44:44 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -18,6 +18,5 @@ ft_bzero:
 	mov		al, 0
 	mov		rcx, rsi
 	rep 	stosb		; repeat while rcx
-	mov		rdi, r8		; restore rdi
-	mov		rax, rdi	; return rdi
+	mov		rax, r8		; return rdi
 	ret

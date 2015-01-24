@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 17:30:19 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/24 16:21:38 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/24 23:34:29 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -15,13 +15,12 @@ global	ft_cat
 extern	ft_puts
 
 ft_cat:
-	push	rsi			; save rsi
-	mov		rbp, rdi	; save rdi
+	mov		r8, rdi		; save rdi
 .loop:
 	; read
 	mov		rdx, buff_size
 	mov		rsi, buff
-	mov		rdi, rbp	; fd
+	mov		rdi, r8		; fd
 	mov		rax, 0x2000003	; syscall read
 	syscall				; call read
 	jc		.ret		; break loop
@@ -35,8 +34,6 @@ ft_cat:
 	syscall				; call write
 	jmp		.loop
 .ret:
-	mov		rdi, rbp	; restore rdi
-	pop		rsi			; restore rsi
 	ret
 
 section .data

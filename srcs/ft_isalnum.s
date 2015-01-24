@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 21:44:21 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 22:08:46 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/24 23:53:23 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -17,8 +17,12 @@ extern	ft_isdigit
 
 ft_isalnum:
 	call	ft_isalpha
-	push	rax
+	cmp		rax, 1
+	je		.true
 	call	ft_isdigit
-	pop		rdx
-	or		rax, rdx	; or
+	cmp		rax, 1
+	je		.true
+	ret
+.true:
+	mov		rax, 1
 	ret

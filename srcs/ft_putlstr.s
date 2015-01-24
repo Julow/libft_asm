@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/24 17:59:24 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/24 22:53:56 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/24 23:32:08 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -23,14 +23,11 @@ ft_putlstr:
 	int		0x80
 	pop		rbx			; restore rbx
 %else
-	push	rsi			; save rsi
 	mov		rdx, rsi	; len
 	mov		rsi, rdi	; str
 	mov		rdi, 1		; fd
 	mov		rax, 0x2000004
 	syscall
-	mov		rdi, rsi	; restore rdi
-	pop		rsi			; restore rsi
 %endif
 	mov		rax, 0		; return 0
 	ret
