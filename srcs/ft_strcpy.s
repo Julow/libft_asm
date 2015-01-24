@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 14:59:38 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/24 16:13:14 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/24 23:56:59 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -14,16 +14,15 @@
 global	ft_strcpy
 
 ft_strcpy:
-	mov		rdx, rdi
-	mov		rcx, rsi
+	mov		r8, rdi		; save rdi
 .loop:
-	mov		cl, [rcx]	; get char
-	mov		[rdx], cl	; set char
+	mov		cl, [rsi]	; get char
+	mov		[rdi], cl	; set char
 	cmp		cl, 0
 	jz		.ret		; break loop
-	inc		rdx			; ++
-	inc		rcx
+	inc		rdi			; ++
+	inc		rsi
 	jmp		.loop
 .ret:
-	mov		rax, rdi	; return rdi
+	mov		rax, r8		; return rdi
 	ret
