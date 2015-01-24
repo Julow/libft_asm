@@ -1,23 +1,23 @@
 ;; ************************************************************************** ;;
 ;;                                                                            ;;
 ;;                                                        :::      ::::::::   ;;
-;;   ft_bzero.s                                         :+:      :+:    :+:   ;;
+;;   ft_min.s                                           :+:      :+:    :+:   ;;
 ;;                                                    +:+ +:+         +:+     ;;
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
-;;   Created: 2015/01/21 17:54:58 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/24 16:00:40 by jaguillo         ###   ########.fr       ;;
+;;   Created: 2015/01/24 11:36:33 by jaguillo          #+#    #+#             ;;
+;;   Updated: 2015/01/24 11:37:03 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
-; void			*ft_bzero(void *mem, size_t len);
-global	ft_bzero
+; int			ft_min(int a, int b);
+global	ft_min
 
-ft_bzero:
-	mov		r8, rdi		; save rdi
-	mov		al, 0
-	mov		rcx, rsi
-	rep 	stosb		; repeat while rcx
-	mov		rdi, r8		; restore rdi
-	mov		rax, rdi	; return rdi
+ft_min:
+	cmp		rdi, rsi
+	jl		.l
+	mov		rax, rsi
+	ret
+.l:
+	mov		rax, rdi
 	ret

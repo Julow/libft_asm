@@ -6,16 +6,16 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/23 12:03:42 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/24 16:03:37 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfts.h"
+#include <string.h>
 #include <stdio.h>
+#include <fcntl.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include <fcntl.h>
-#include <string.h>
 
 #define TEST(a,b,c)	(test(#a, a(c), b(c), c))
 
@@ -73,16 +73,16 @@ int				main(int argc, char **argv)
 	printf("done\n");
 	printf("Testing ft_strlen...\n");
 	if (argc > 1)
-		printf("ft_strlen(\"%s\") :: %u\n", argv[1], ft_strlen(argv[1]));
+		printf("ft_strlen(\"%s\") :: %zu\n", argv[1], ft_strlen(argv[1]));
 	i = -1;
-	while (++i < ft_strlen(str))
+	while (++i < (int)ft_strlen(str))
 		if (ft_strlen(str + i) != strlen(str + i))
-			printf("\n ft_strlen fail ! %u vs %zu for %s\n", ft_strlen(str + i),
+			printf("\n ft_strlen fail ! %zu vs %zu for %s\n", ft_strlen(str + i),
 				strlen(str + i), str + i);
 	printf("done\n");
 	printf("Testing ft_strdup...\n");
 	i = -1;
-	while (++i < ft_strlen(str))
+	while (++i < (int)ft_strlen(str))
 		if (strcmp(ft_strdup(str + i), strdup(str + i)) != 0)
 			printf("\n ft_strdup fail ! %s vs %s for %s\n", ft_strdup(str + i),
 				strdup(str + i), str + i);
@@ -118,7 +118,7 @@ int				main(int argc, char **argv)
 	ft_putstr("\n");
 	ft_putstr("test\n");
 	i = 0;
-	while (++i < ft_strlen(str))
+	while (++i < (int)ft_strlen(str))
 	{
 		ft_putstr(str + i);
 		ft_putstr("\n");
@@ -131,7 +131,7 @@ int				main(int argc, char **argv)
 	ft_puts("");
 	ft_puts("test");
 	i = 0;
-	while (++i < ft_strlen(str))
+	while (++i < (int)ft_strlen(str))
 		ft_puts(str + i);
 	printf("done\n");
 	printf("Testing ft_cat...\n");
@@ -149,10 +149,6 @@ int				main(int argc, char **argv)
 	else
 		printf("	enter a file\n");
 	printf("done\n");
-/*
-	i = 10000000;
-	while (--i > 0)
-		ft_strlen(str);*/
 	(void)argc;
 	(void)argv;
 	return (0);

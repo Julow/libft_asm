@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 14:33:45 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/23 12:03:11 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/24 16:01:38 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,12 @@ int				ft_isrange(int c, int from, int to);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 
-void			*ft_memset(void *mem, int c, size_t len);
 void			*ft_bzero(void *mem, size_t len);
+void			*ft_memset(void *mem, int c, size_t len);
 void			*ft_memcpy(void *dst, const void *src, size_t len);
 
 size_t			ft_strlen(const char *str);
+
 char			*ft_strcat(char *s1, const char *s2);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strdup(const char *str);
@@ -60,5 +61,8 @@ int				ft_putchar(char c);
 int				ft_putstr(const char *str);
 
 void			ft_cat(int fd);
+
+int				ft_max(int a, int b);
+int				ft_min(int a, int b);
 
 #endif

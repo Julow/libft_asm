@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 17:54:16 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/22 21:12:19 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/24 11:56:27 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -17,5 +17,6 @@ ft_memcpy:
 	push	rdi			; save rdi
 	mov		rcx, rdx
 	rep		movsb		; repeat while rcx
-	pop		rax			; return rdi
+	pop		rdi			; restore rdi
+	mov		rax, rdi	; return rdi
 	ret
