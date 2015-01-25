@@ -1,25 +1,30 @@
 ;; ************************************************************************** ;;
 ;;                                                                            ;;
 ;;                                                        :::      ::::::::   ;;
-;;   ft_isspace.s                                       :+:      :+:    :+:   ;;
+;;   ft_memswap.s                                       :+:      :+:    :+:   ;;
 ;;                                                    +:+ +:+         +:+     ;;
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
-;;   Created: 2015/01/22 16:39:31 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/25 21:50:48 by jaguillo         ###   ########.fr       ;;
+;;   Created: 2015/01/25 22:16:46 by jaguillo          #+#    #+#             ;;
+;;   Updated: 2015/01/25 22:24:53 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
-; int			ft_isspace(int c);
-global	ft_isspace
-extern	ft_isrange
+; void			ft_memswap(void *mem1, void *mem2, size_t len);
+global	ft_memswap
 
-ft_isspace:
-	cmp		rdi, ' '	; check space
-	jz		.true
-	mov		rsi, 9		; check \t, \n, \v, \f, \r
-	mov		rdx, 13
-	jmp		ft_isrange
-.true:
-	mov		rax, 1
+ft_memswap:
+	cmp		rdx, 0
+	jz		.ret		; len == 0
+.loop:
+	mov		al, [rdi]
+	mov		cl, [rsi]
+	mov		[rdi], cl
+	mov		[rsi], al
+	dec		rdx			; --
+	inc		rdi			; ++
+	inc		rsi
+	cmp		rdx, 0
+	jg		.loop		; continue
+.ret:
 	ret

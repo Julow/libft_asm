@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 14:33:45 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/24 23:31:33 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/25 22:17:27 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 ** ;%r8				%r8d		%r8w		%r8b	Arg 5
 ** ;%r9				%r9d		%r9w		%r9b	Arg 6
 ** ;%r10			%r10d		%r10w		%r10b	Arg 7
-** ;%r11			%r11d		%r11w		%r11b	Arg 8
+** ;%r11			%r11d		%r11w		%r11b	Tmp
 ** ;%r12			%r12d		%r12w		%r12b	(Callee saved)
 ** ;%r13			%r13d		%r13w		%r13b	(Callee saved)
 ** ;%r14			%r14d		%r14w		%r14b	(Callee saved)
@@ -53,6 +53,7 @@ int				ft_tolower(int c);
 void			*ft_bzero(void *mem, size_t len);
 void			*ft_memset(void *mem, int c, size_t len);
 void			*ft_memcpy(void *dst, const void *src, size_t len);
+void			ft_memswap(void *mem1, void *mem2, size_t len);
 
 size_t			ft_strlen(const char *str);
 

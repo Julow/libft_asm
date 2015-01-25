@@ -6,7 +6,7 @@
 #    By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 13:05:11 by jaguillo          #+#    #+#              #
-#    Updated: 2015/01/24 22:57:21 by jaguillo         ###   ########.fr        #
+#    Updated: 2015/01/25 22:04:55 by jaguillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ C_DIR = srcs
 O_DIR = o
 
 ifeq ($(shell uname),Linux)
-	FLAGS = -f elf64 -DLINUX -g -F dwarf
+	FLAGS = -f elf64 -DLINUX
 else
 	FLAGS = -f macho64 --prefix _
 endif
