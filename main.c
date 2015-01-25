@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/25 23:06:51 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/25 23:48:31 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ int				main(int argc, char **argv)
 	ft_puts("Testing ft_strdup...");
 	i = -1;
 	while ((++i + 1) < ft_strlen(str))
-		if (strcmp(ft_strdup(str + i), strdup(str + i)) != 0)
+		if (ft_memcmp(ft_strdup(str + i), str + i, ft_strlen(str) - i) != 0)
 			printf("\n ft_strdup fail ! %s vs %s for %s\n", ft_strdup(str + i),
-				strdup(str + i), str + i);
+				str + i, str + i);
 	ft_puts("done");
 	ft_puts("Testing ft_memswap...");
 	ft_memset(str + 15, 'a', 5);
@@ -110,7 +110,6 @@ int				main(int argc, char **argv)
 	ft_puts(str);
 	ft_puts("done");
 	ft_puts("Testing ft_putchar...");
-	//ft_putlstr("\n", 1);
 	i = 'A' - 1;
 	while (++i < 'Z')
 		ft_putchar(i);

@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 14:33:45 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/25 23:11:56 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/25 23:25:38 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void			*ft_bzero(void *mem, size_t len);
 void			*ft_memset(void *mem, int c, size_t len);
 void			*ft_memcpy(void *dst, const void *src, size_t len);
 void			ft_memswap(void *mem1, void *mem2, size_t len);
+int				ft_memcmp(const void *mem1, const void *mem2, size_t len);
 
 size_t			ft_strlen(const char *str);
 

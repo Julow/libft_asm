@@ -6,12 +6,13 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 17:54:58 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/25 23:10:19 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/25 23:24:21 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
 ; void			*ft_bzero(void *mem, size_t len);
 global	ft_bzero
+extern	ft_memset
 
 ft_bzero:
 	mov		rdx, rsi

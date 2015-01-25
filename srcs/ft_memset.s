@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 17:54:38 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/25 23:01:37 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/25 23:34:32 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -24,10 +24,9 @@ ft_memset:
 	ret
 
 ft_memset2:
-	cmp		rdx, 0
-	jz		.ret		; len == 0
 	cmp		rdx, 8
-	jl		.loop1		; len < 8
+	jl		.loop1_ini	; len < 8
+.loop8_ini:
 	mov		rax, rsi	; set all byte of rsi to sil
 	shl		rsi, 8
 	mov		sil, al
@@ -42,6 +41,9 @@ ft_memset2:
 	mov		[rdi+rdx], rsi
 	cmp		rdx, 8
 	jge		.loop8		; loop if len >= 8
+.loop1_ini:
+	cmp		rdx, 0
+	jz		.ret		; len == 0
 .loop1:
 	dec		rdx			; --
 	mov		[rdi+rdx], sil
