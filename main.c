@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/25 22:25:28 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/25 23:06:51 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int				main(int argc, char **argv)
 	ft_memset(str + 15, 'a', 5);
 	ft_puts(str);
 	ft_puts("	to:");
-	ft_memswap(str + 2, str + 15, 5);
+	ft_memswap(str, str + 14, 14);
 	ft_puts(str);
 	ft_puts("done");
 	ft_puts("Testing ft_strcat...");
