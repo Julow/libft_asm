@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 17:54:58 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/24 23:44:44 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/25 23:10:19 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -14,9 +14,6 @@
 global	ft_bzero
 
 ft_bzero:
-	mov		r8, rdi		; save rdi
-	mov		al, 0
-	mov		rcx, rsi
-	rep 	stosb		; repeat while rcx
-	mov		rax, r8		; return rdi
-	ret
+	mov		rdx, rsi
+	mov		rsi, 0
+	jmp		ft_memset
