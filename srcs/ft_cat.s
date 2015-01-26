@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/22 17:30:19 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/25 00:16:42 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/26 12:15:49 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -25,7 +25,7 @@ ft_cat:
 	int		0x80
 %else
 	mov		rdx, buff_size
-	mov		rsi, buff
+	lea		rsi, [rel buff]
 	mov		rdi, rbx
 	mov		rax, 0x2000003	; read syscall
 	syscall
@@ -35,13 +35,13 @@ ft_cat:
 	jle		.ret		; eof break loop
 .write:
 	mov		rsi, rax
-	mov		rdi, buff
+	lea		rdi, [rel buff]
 	call	ft_putlstr
 	jmp		.read
 .ret:
 	pop		rbx			; restore rbx
 	ret
 
-section .data
-	buff		times 192 db 0
+section .bss
+	buff		resb 192
 	buff_size	equ $ - buff

@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/25 23:48:31 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/26 10:04:18 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int				main(int argc, char **argv)
 	i = -1;
 	while ((++i + 1) < ft_strlen(str))
 		if (ft_strlen(str + i) != strlen(str + i))
-			printf("\n ft_strlen fail ! %zu vs %zu for %s\n", ft_strlen(str + i),
-				strlen(str + i), str + i);
+			printf("\n ft_strlen fail ! %zu vs %zu for %s\n",
+				ft_strlen(str + i), strlen(str + i), str + i);
 	ft_puts("done");
 	ft_puts("Testing ft_strdup...");
 	i = -1;

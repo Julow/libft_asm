@@ -6,7 +6,7 @@
 #    By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 13:05:11 by jaguillo          #+#    #+#              #
-#    Updated: 2015/01/25 22:04:55 by jaguillo         ###   ########.fr        #
+#    Updated: 2015/01/26 12:18:36 by jaguillo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ fclean: clean
 re: fclean all
 
 $(TEST): $(NAME)
-	@gcc -Wall -Wextra -g $(NAME) main.c -I . -L . -lfts -o $@ $< \
+	@gcc -Wall -Wextra $(NAME) main.c -I . -L . -lfts -o $@ $< \
 		&& printf "\033[0;32m" \
 		|| printf "\033[0;31m"
 	@printf "%-34s \033[1;30m<<--\033[0;0m\n" "$@"
