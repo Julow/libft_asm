@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/26 10:04:18 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/31 00:38:32 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,21 @@
 #include <ctype.h>
 #include <stdlib.h>
 
+int				main(int argc, char **argv)
+{
+	const int		len = 1000000000;
+	const int		count = 100;
+	char			*str;
+	int				i;
+
+	str = malloc(len / count);
+	i = count;
+	while (i-- > 0)
+		ft_memset(str, 'a', len / count);
+	return (0);
+}
+
+/*
 #define TEST(a,b,c)	(test(#a, a(c), b(c), c))
 
 static void		test(char *str, int ret1, int ret2, char c)
@@ -160,3 +175,4 @@ int				main(int argc, char **argv)
 	(void)argv;
 	return (0);
 }
+*/

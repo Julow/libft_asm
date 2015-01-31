@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 17:54:38 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/25 23:34:32 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/31 00:38:47 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -14,41 +14,40 @@
 global	ft_memset
 
 ft_memset:
-	cmp		rdx, 100
-	jl		ft_memset2	; len < 100
-	mov		rax, rsi
-	mov		rcx, rdx
-	mov		r8, rdi		; save rdi
-	rep		stosb		; repeat while rcx
-	mov		rax, r8		; return rdi
-	ret
-
-ft_memset2:
-	cmp		rdx, 8
-	jl		.loop1_ini	; len < 8
-.loop8_ini:
-	mov		rax, rsi	; set all byte of rsi to sil
-	shl		rsi, 8
-	mov		sil, al
-	mov		rax, rsi
-	shl		rsi, 16
-	mov		si, ax
-	mov		rax, rsi
-	shl		rsi, 32
-	mov		esi, eax
-.loop8:
-	sub		rdx, 8		; -= 8
-	mov		[rdi+rdx], rsi
-	cmp		rdx, 8
-	jge		.loop8		; loop if len >= 8
-.loop1_ini:
+	mov		r10, rdi	; save rdi
+	cmp		rdx, 32
+	jge		.repq		; len > 32
 	cmp		rdx, 0
-	jz		.ret		; len == 0
-.loop1:
+	je		.ret		; len == 0
+.loopb:
 	dec		rdx			; --
-	mov		[rdi+rdx], sil
+	mov		[rdi+rdx], sil	; set byte
 	cmp		rdx, 0
-	jg		.loop1		; loop if len > 0
+	jg		.loopb		; while rdx > 0
+	jmp		.ret
+.repq:
+	mov		rax, rdx
+	mov		rdx, 0
+	mov		r9, 8
+	div		r9			; rcx = len / 8 ; len %= 8
+	mov		rcx, rax
+	mov		al, sil		; { set rax with sil
+	shl		rax, 8
+	mov		al, sil
+	mov		si, ax
+	shl		rax, 16
+	mov		ax, si
+	shl		rax, 16
+	mov		ax, si
+	shl		rax, 16
+	mov		ax, si		; }
+	rep		stosq		; repeat while rcx > 0
+	cmp		rdx, 0
+	jle		.ret		; len <= 0
+.repb:
+	mov		al, sil
+	mov		rcx, rdx
+	rep		stosb		; repeat while rcx > 0
 .ret:
-	mov		rax, rdi	; return rdi
+	mov		rax, r10	; return rdi
 	ret
