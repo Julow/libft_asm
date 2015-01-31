@@ -6,7 +6,7 @@
 /*   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 13:40:42 by jaguillo          #+#    #+#             */
-/*   Updated: 2015/01/31 00:38:32 by jaguillo         ###   ########.fr       */
+/*   Updated: 2015/01/31 19:48:55 by jaguillo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,43 @@
 #include <ctype.h>
 #include <stdlib.h>
 
+/*
+
+memset			ft_				libc
+1				2476			2995
+10				476				306
+100				97				46
+1000			41				25
+10000			26				24
+100000			32				36
+1000000			37				42
+10000000		43				76
+
+memcpy			ft_				libc
+1				2122			3000
+10				364				334
+100				127				101
+1000			60				49
+10000			30				31
+100000			38				38
+1000000			40				46
+10000000		61				109
+
+*/
+
 int				main(int argc, char **argv)
 {
-	const int		len = 1000000000;
-	const int		count = 100;
+	const int		len = (argc > 1) ? atoi(argv[1]) : 1000;
+	const int		count = 1000000000 / len;
 	char			*str;
+	char			*str2;
 	int				i;
 
-	str = malloc(len / count);
+	str = malloc(len);
+	str2 = malloc(len);
 	i = count;
 	while (i-- > 0)
-		ft_memset(str, 'a', len / count);
+		ft_memcpy(str, str2, len);
 	return (0);
 }
 

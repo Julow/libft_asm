@@ -6,7 +6,7 @@
 ;;   By: jaguillo <jaguillo@student.42.fr>          +#+  +:+       +#+        ;;
 ;;                                                +#+#+#+#+#+   +#+           ;;
 ;;   Created: 2015/01/21 17:54:38 by jaguillo          #+#    #+#             ;;
-;;   Updated: 2015/01/31 19:07:07 by jaguillo         ###   ########.fr       ;;
+;;   Updated: 2015/01/31 19:52:11 by jaguillo         ###   ########.fr       ;;
 ;;                                                                            ;;
 ;; ************************************************************************** ;;
 
@@ -30,8 +30,8 @@ ft_memset:
 	mov		r10, rdi	; save rdi
 	cmp		rdx, 512
 	jge		.repq		; len >= 512
-	cmp		rdx, 96
-	jge		.repb		; len >= 96
+	cmp		rdx, 128
+	jge		.repb		; len >= 128
 	cmp		rdx, 0
 	je		.ret		; len == 0
 	cmp		rdx, 8
@@ -62,6 +62,7 @@ ft_memset:
 	jle		.ret		; len <= 0
 .repb:
 	mov		rcx, rdx	; rcx = len % 8
+	mov		al, sil
 	rep		stosb		; repeat while rcx > 0
 .ret:
 	mov		rax, r10	; return rdi
